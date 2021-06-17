@@ -1,4 +1,12 @@
 # Graph Data Structur Undirect Cycle Graph
+gdict = {
+    "vinod":["manu","salu","rahul"],
+    "manu":["vinod","salu"], 
+    "salu":["vinod","manu","hem"],
+    "tom":["hem","rahul"],
+    "hem": ["tom","salu"],
+    "rahul":["vinod","tom"]
+}
 class Graph:
     def __init__(self, gdata=None):
         self.gdata= gdata
@@ -13,13 +21,25 @@ class Graph:
         return self.gdata[node]
     # Add Nodes
     def addNode(self, node):
-        return self.gdata[node] = []
-    # Traversal BSF : DSF
-    def showNode(self):
-        return self.gdata.keys()
+        self.gdata[node] = []
     # Count Nodes
     def countNodes(self):
         return len(self.gdata)
+    # Normal Traversal 
+    def showNode(self):
+        return self.gdata.keys()
+    # Traversal: BFS-Breadth First System
+    def bfs(self,vertex):
+        queue = [vertex]                         # Add all nodes to a queue
+        visited = [vertex]                       # It's like a dummy to mentioned which all visited
+        while queue:                             # Runs until queue is empty
+            deVertex = queue.pop(0)              # Pop(remove) Visited Node
+            print(deVertex)
+            for adjacentVertex in self.gdata[deVertex]:  # Loop all of deVertex Edges(connections)
+                if adjacentVertex not in visited:         # Only runs if node is not visited
+                    queue.append(adjacentVertex)    # Add which all needs to be visit
+                    visited.append(adjacentVertex)  # Add to visit a nodes
     
-a = Graph({"a":[1,2,3,4],"b":[5,6], "c":[7,8],"d":[9]})
+a = Graph(gdict)
 a.showNode()
+a.bfs("manu")
