@@ -28,7 +28,7 @@ class Graph:
     # Normal Traversal 
     def showNode(self):
         return self.gdata.keys()
-    # Traversal: BFS-Breadth First System
+    # Traversal: BFS-Breadth First Search
     def bfs(self,vertex):
         queue = [vertex]                         # Add all nodes to a queue
         visited = [vertex]                       # It's like a dummy to mentioned which all visited
@@ -39,6 +39,17 @@ class Graph:
                 if adjacentVertex not in visited:         # Only runs if node is not visited
                     queue.append(adjacentVertex)    # Add which all needs to be visit
                     visited.append(adjacentVertex)  # Add to visit a nodes
+    # Traversal: DFS-Depth First Search
+    def dfs(self,vertex):
+        stack = [vertex]                         # Add all nodes to a queue
+        visited = [vertex]                       # It's like a dummy to mentioned which all visited
+        while queue:                             # Runs until queue is empty
+            popVertex = queue.pop()              # Pop(remove) Visited Node
+            print(popVertex)
+            for adjacentVertex in self.gdata[popVertex]:  # Loop all of deVertex Edges(connections)
+                if adjacentVertex not in visited:         # Only runs if node is not visited
+                    stack.append(adjacentVertex)    # Add which all needs to be visit
+                    visited.append(adjacentVertex)  # Add to visit a nodes    
     
 a = Graph(gdict)
 a.showNode()

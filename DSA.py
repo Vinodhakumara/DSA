@@ -12,6 +12,7 @@ class recursion:
             return 1
         else:
             return n * recursion.fact(n-1)
+    
         
 # Searching
 class search:
@@ -118,3 +119,37 @@ class sort:
             return db
         else:
             return ("Already Sorted")
+
+# Stack: LIFO(Last In First Out)
+class stack:
+    def __init__(self):
+        self.stack = stack
+    # Push to Stack
+    def push(self,elem):
+        self.stack.append(elem)
+    # Remove(pop) from Stack
+    def pop(self):
+        return self.stack.pop()
+    # Check Stack is empty or not
+    def isEmpty(self):
+        if self.stack == []:
+            return True
+        else:
+            return False
+    # Show Peak Value
+    def peek(self):
+        return self.stack[len(stack)-1]
+    # Print Stack
+    def printStack(self):
+        self.stack.reverse()
+        for i in self.stack:
+            print(i)
+    # Print string when object run string prints: Print Stack
+    def __str__(self):
+        self.stack.reverse()
+        mystack=[]
+        for i in self.stack:
+            mystack.append(i)
+        self.stack.reverse()
+        return "\n".join(mystack)
+        
