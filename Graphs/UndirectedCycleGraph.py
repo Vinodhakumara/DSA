@@ -49,7 +49,21 @@ class Graph:
             for adjacentVertex in self.gdata[popVertex]:  # Loop all of deVertex Edges(connections)
                 if adjacentVertex not in visited:         # Only runs if node is not visited
                     stack.append(adjacentVertex)    # Add which all needs to be visit
-                    visited.append(adjacentVertex)  # Add to visit a nodes    
+                    visited.append(adjacentVertex)  # Add to visit a nodes
+    # Topologocal Ordering
+    def topologicalSort(self):
+        visited=[]
+        stack=[]
+        for k in self.graph:
+            if k not in visited:
+                self.toplogicalSortHelpper(k,visited,stack)
+    # Topological Sort Helpper
+    def topologicalSortHelpper(self,n,visited,stack):
+        visited.append(n)
+        for i in self.graph[n]:
+            if i not in visited:
+                self.topologicalSortHelpper(i,visited,stack)
+        stack.insert(0,n)
     
 a = Graph(gdict)
 a.showNode()

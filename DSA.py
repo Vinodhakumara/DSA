@@ -1,5 +1,5 @@
 # Recursion
-class recursion: 
+class Recursion: 
     '''Recursion'''
     def __init__(self):
         pass
@@ -12,10 +12,19 @@ class recursion:
             return 1
         else:
             return n * recursion.fact(n-1)
+     
+    def fib(n):
+        '''Recursion: Fibonacci'''
+        if n == 1:
+            return 0
+        elif n == 2:
+            return 1
+        else:
+            return fib(n-1)+fib(n-2)
     
         
 # Searching
-class search:
+class Search:
     '''Searching a element'''
     def __init__(self):
         search = int()
@@ -57,7 +66,7 @@ class search:
             return "Elements not Sorted!!"
             
 # Sorting
-class sort:
+class Sort:
     """ Sorting in Ascnding or Discending order"""
     def __init__(self):
         notSorted = False
@@ -121,7 +130,7 @@ class sort:
             return ("Already Sorted")
 
 # Stack: LIFO(Last In First Out)
-class stack:
+class Stack:
     def __init__(self):
         self.stack = stack
     # Push to Stack
@@ -129,13 +138,13 @@ class stack:
         self.stack.append(elem)
     # Remove(pop) from Stack
     def pop(self):
-        return self.stack.pop()
+        isEmp = self.isEmpty() 
+        if isEmp[0]:
+            return isEmp[1]+" Can't pop!"
+        self.stack.pop()
     # Check Stack is empty or not
     def isEmpty(self):
-        if self.stack == []:
-            return True
-        else:
-            return False
+        return (True,("Stack is empty!")) if self.queue == [] else (False,("Stack is not empty!"))
     # Show Peak Value
     def peek(self):
         return self.stack[len(stack)-1]
@@ -152,4 +161,37 @@ class stack:
             mystack.append(i)
         self.stack.reverse()
         return "\n".join(mystack)
-        
+    
+# Queue FIFO(First In First Out)
+class Queue:
+    def __init__(self,queue):
+        self.queue=queue
+    # Add Element to a queue
+    def push(self,elem):
+        self.queue.append(elem)
+    # Remove Element from queue
+    def pop(self):
+        isEmp = self.isEmpty() 
+        if isEmp[0]:
+            return isEmp[1]+" Can't pop!"
+        self.queue.pop(0)
+    def peak(self):
+        return self.queue[0]
+    def isEmpty(self):
+        return (True,("Queue is empty!")) if self.queue == [] else (False,("Queue is not empty!"))
+    # Print a Queue
+    def printQueue(self, queue=None):
+        myqueue=""
+        if queue != None:
+            for i in queue:
+                myqueue+=str(i)+"\n"
+            return myqueue
+        else:
+            for i in self.queue:
+                myqueue+=str(i)+"\n"
+            return myqueue
+    def __str__(self):
+        myqueue=""
+        for i in self.queue:
+            myqueue+=str(i)+"\n"
+        return myqueue
